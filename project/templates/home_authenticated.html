@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block head_title %}
+    {% trans "Home - Authenticated" %}
+{% endblock head_title %}
+
+{% block content %}
+    <div class="container mt-5">
+        <!-- Jumbotron Section -->
+        <div class="jumbotron bg-light p-4 rounded shadow-sm">
+            <h1 class="display-4 text-center mb-4">{% trans "Welcome Back!" %}</h1>
+            <p class="lead text-center">
+                {% trans "Thank you for being a part of our community. We are excited to have you back!" %}
+            </p>
+            <div class="text-center">
+                <!-- Placeholder image -->
+                <img src="{% static 'images/default-placeholder.jpg' %}" alt="{% trans 'Placeholder Image' %}" class="img-fluid rounded">
+            </div>
+        </div>        
+    </div>
+{% endblock content %}

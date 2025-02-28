@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block content %}
+    <!-- Container to center the content -->
+    <div class="container">
+        <!-- Row to center content horizontally -->
+        <div class="row justify-content-center align-items-center mt-5">
+            <!-- Column with a fixed width for the content -->
+            <div class="col-md-8 col-lg-8">
+                <!-- Card component to provide styling and a background -->
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h1 class="card-title mb-4 text-center">{% trans "Verify Your Email Address" %}</h1>
+                        <h2 class="text-center">
+                            {% blocktrans %}We have sent an email to you for verification. Follow the link provided to finalize the signup process. If you do not see the verification email in your main inbox, check your spam folder. Please contact us if you do not receive the verification email within a few minutes.{% endblocktrans %}
+                        </h2>
+
+                        <!-- Django messages -->
+                        {% if messages %}
+                            <ul class="list-unstyled">
+                                {% for message in messages %}
+                                    <li class="alert alert-info">{{ message }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

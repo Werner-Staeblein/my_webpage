@@ -1,0 +1,451 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+@import url('fonts.css');
+
+/* Fonts */
+:root {
+  --font-default: "Lora", system-ui, -apple-system;
+  --font-primary: "OpenSans", sans-serif;
+  --font-secondary: "Poppins", sans-serif;
+}
+
+:root {
+  --section-head-font-size: 2rem;
+}
+
+/*--------------------------------------------------------------------------------------
+                    Custom properties for colors, backgrounds, and typography
+----------------------------------------------------------------------------------------*/
+
+/* :root {
+    --headline: 
+    --text:  
+    --text2: 
+    --background:
+    --background-shade: 
+    --alternate-bg: 
+
+    Custom properties for success and error messages
+    --alternate-bg-success: 
+    --alternate-bg-error:  */
+
+    /*Custom properties sans-serif typography*/
+
+    /* --font-roboto-light: 
+    --font-roboto-regular:
+    --font-roboto-bold:  
+}*/
+
+/* Colors */
+:root {
+    --background-main: rgba(173, 216, 230, 0.2); /*Eastern blue*/
+    
+    --background-color-status: rgba(173, 216, 230, 0.6);
+    --color-status-messages: rgb(35, 35, 37);
+
+    --custom-btn-background: rgba(173, 216, 230, 0.6);
+    --custom-btn-focus-box-shadow: rgba(173, 216, 230);
+    --custom-btn--color: rgb(35, 35, 37);
+    
+  
+  /* Smooth scroll behavior */
+  :root {
+    scroll-behavior: smooth;
+  }
+
+body{
+    background: var(--background-main);
+}
+
+/* Ensure sections have the same left and right margins as the .container */
+#section1,
+#section2,
+#section3,
+#section4,
+#section5 {
+    width: 80%;
+    height: 100vh;
+    max-width: 1140px; /* Same as the largest container size */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;  /* Adjust padding to match your desired space */
+    padding-right: 1.5rem; /* Adjust padding to match your desired space */
+}
+
+#section1 {
+    margin-top: 4rem;
+}
+
+/* Ensure full height for html and body */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+/* Make the body a flex container */
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Main content area should take the remaining space */
+main {
+    flex: 1;
+}
+
+/* Footer stays at the bottom */
+footer {
+    margin-top: auto;
+}
+
+
+/*---------------------------------------------------------------------------------
+        Custom Styling of all the buttons and nav-links
+----------------------------------------------------------------------------------*/
+
+.custom-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 30px;
+    background-color: var(--custom-btn-background) !important;
+    color: var(--custom-btn-color);                    
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 0.4s ease;
+}
+
+.custom-btn:hover {
+    transform: translateY(-4px);
+}
+
+.custom-btn:active {
+    transform: translateY(-4px);
+}
+
+.custom-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--custom-btn-focus-box-shadow); /* Add a green glow effect on focus */
+}
+
+/* Change the default color of nav links */
+.navbar-nav .nav-link {
+    color: #4CAF50 !important; /* Green color for the text */
+}
+  
+/* On hover, change the color to blue */
+.navbar-nav .nav-link:hover {
+    color: #007BFF !important; /* Blue color on hover */
+}
+  
+/* Active link color */
+.navbar-nav .nav-item.active .nav-link {
+    color: #FF5722; /* Orange color for the active link */
+}
+
+/*---------------------------------------------------------------------------------
+            Customise messaging system on login and logout
+----------------------------------------------------------------------------------*/
+
+/* Custom alert styles */
+.alert-custom {
+    background-color: #d4edda; /* Greenish background */
+    border-color: #c3e6cb; /* Border color matching the background */
+    font-size: 1.1rem;
+    border-radius: 0.25rem;
+    padding: 10px 15px;
+  }
+  
+  .alert-success-custom {
+    color: #155724; /* Dark green color */
+  }
+  
+  /* Custom close button */
+  .custom-close {
+    background-color: transparent;
+    border: none;
+    font-size: 1.5rem;
+    color: #155724; /* Green color for close button */
+  }
+  
+  .custom-close:hover {
+    color: #1e7e34; /* Darker green for hover */
+  }
+  
+
+.alert-section{
+    background: inherit;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*---------------------------------------------------------------------------------
+                        Styling of login status in navbar
+----------------------------------------------------------------------------------*/
+
+/* Ensure the container has sufficient top padding */
+.container.my-3 {
+    padding-top: 4rem;  /* Space from the top of the page */
+    position: relative;
+}
+
+/* Style for the login-status */
+.login-status {
+    background-color: var(--background-color-status);
+    color: var(--color-status-messages);
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 0.6rem 1.2rem;
+    margin: 4rem 1rem 0 0;
+    border-radius: 0.5rem;
+    position: absolute;
+    right: 0;
+    width: fit-content;
+    top: 0;  /* Position it at the top of the container */
+}
+  
+
+/*----------------------------------------------------------------------------------------------------
+    Styling of navigation | alignment navbar-brand and nav-items | jumbotron
+------------------------------------------------------------------------------------------------------*/
+
+.navbar-brand {
+    margin-right: auto;
+}
+
+.navbar-nav {
+    margin-left: auto; /* Pushes the nav items to the right */
+}
+
+.jumbotron {
+    padding: 5rem;
+    margin-top: 6rem !important;
+}
+
+
+/*--------------------------------------------------------------
+# Preloader
+--------------------------------------------------------------*/
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999999; /*Preloader muss on top des anderen content sein*/
+    background-color: var(--color-default);
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.7s ease-out;
+  }
+  
+  #preloader:before {
+    content: "";
+    position: absolute;
+    top: 40%;
+    left: 33%;
+    transform: translate(-50%, -50%);
+    border: 1rem solid #fff;
+    border-color: #007bff transparent #007bff transparent;
+    border-radius: 50%;
+    width: 10rem;
+    height: 10rem;
+    animation: animate-preloader 0.7s linear infinite;
+  }
+  
+  @keyframes animate-preloader {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+
+
+/*---------------------------------------------------------------------------------
+                        Styling of navbar and nav-links
+----------------------------------------------------------------------------------*/
+
+/* .navbar {
+    background-color: var(--background);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.navbar-brand {
+    font-weight: var(--font-roboto-bold);
+    color: var(--headline);
+}
+
+.nav-link {
+    /* font-family: var(--font-roboto-regular); */
+    /* color: var(--text2); */
+    /* font-size: 1.1rem;
+    font-weight: bold;
+    padding: 1rem 1rem;
+    margin-left: 1rem;
+    transition: color 0.3s ease;
+} */
+
+/* .nav-link.active {
+    background-color: orange;
+    border-radius: 0.3rem;
+} */ 
+
+/*-------------------------------------------------------------------------------------
+/* Fixed Navbar - Navbar fixed to top when user scrolls down on larger screens 
+---------------------------------------------------------------------------------------*/
+
+/* General Styles for Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;  /* Ensure navbar stays above other content */
+    background-color: #f8f9fa;  /* Optional background */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Optional shadow for visibility */
+    transition: top 0.3s ease-in-out;
+}
+
+/* Add padding to body to prevent content from hiding behind fixed navbar */
+body {
+    padding-top: 60px;  /* Adjust padding based on navbar height */
+}
+
+/* Adjust margins and padding to prevent overlaps */
+body {
+    padding-top: 56px; /* Space for fixed navbar */
+}
+
+
+/* Hide hamburger icon on screens 992px and above */
+@media (min-width: 992px) {
+    .mobile-nav-show {
+        display: none !important;
+    }
+}
+
+#navbarNav {
+    display: none; /* Hide by default */
+}
+
+#navbarNav.show {
+    display: block; /* Show when 'show' class is added */
+}
+
+
+
+/* For screens smaller than 992px, apply sliding effect */
+@media (max-width: 992px) {
+    #navbarNav {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Initially off-screen */
+        width: 100%; /* Adjust width as needed */
+        height: 100vh; /* Full height */
+        background-color: #fff; /* Background color */
+        transition: right 0.1s ease-in-out;              
+        z-index: 999; /* Ensure it's below the hamburger */
+        padding-top: 50px;
+    }
+
+    #navbarNav.show {
+        right: 0;
+        background-color: green;
+    }
+
+
+    /* Make sure the hamburger icon stays in front */
+    .mobile-nav-toggle {
+        position: fixed;
+        top: 15px;
+        right: 15px;
+        z-index: 1000; /* Ensure it's above the navbar */
+        font-size: 2rem;
+        color: #333; /* Adjust color as needed */
+    }
+}
+/* Adjust the spacing of nav items */
+#navbarNav .navbar-nav {
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px; /* Optional: Add left padding to align items */
+}
+
+#navbarNav .navbar-nav .nav-item {
+    margin-bottom: 10px; /* Add space between nav items */
+}
+
+#navbarNav .navbar-nav .nav-link {
+    font-size: 1.2rem; /* Optional: Increase font size for better visibility */
+}
+
+/* For larger screens, navbar should behave normally without sliding */
+@media (min-width: 992px) {
+    #navbarNav {
+        position: static; /* Normal positioning for larger screens */
+        right: 0; /* No sliding */
+        width: auto; /* Default width */
+    }
+
+    .mobile-nav-toggle {
+        display: none; /* Hide the hamburger icon */
+    }
+}
+
+/* @media (min-width: 992px) {
+    .navbar-nav {
+        display: flex;
+        width: 100%;
+        align-items: center;
+    }
+
+} */
+
+/* Hamburger icon vertical alignment. Hamburger is lifted "up" slightly to be best-aligned
+with the navbar-brand */
+
+.mobile-nav-toggle {
+    margin-top: -0.6rem;  /* Adjust this value to move it slightly up */
+}
+
+/* Custom styles to reduce margin-bottom/padding-bottom in the navbar on small screens */
+@media (max-width: 991px) {
+    /* Remove margin-bottom for the navbar items inside the hamburger menu */
+    .navbar-nav .nav-item {
+        margin-bottom: 0 !important;  /* Reset margin-bottom to 0 */
+    }
+
+    /* Optionally reduce padding for each navbar item */
+    .navbar-nav .nav-link {
+        padding-bottom: 0.25rem;  /* Adjust padding as needed */
+    }
+    .mobile-nav-toggle {
+        font-size: 2rem;
+     }
+}}

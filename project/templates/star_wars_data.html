@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<h1>Imperial Bureau of Ships and Services Registry</h1>
+
+{% if ships %}
+    {% for ship in ships %}
+        <p><strong>Name of the ship: </strong>{{ ship.name }}</p>
+        <p><strong>Type of the ship: </strong>{{ ship.type }}</p>
+        <p><strong>Owner of the ship: </strong>{{ ship.owner }}</p>
+    {% endfor %}
+{% else %}
+    <p>No ships found in the registry.</p>
+{% endif %}
+
+<form action="{% url 'about' %}" method="get">
+    <button type="submit">Go to About</button>
+</form>
+
+</body>
+</html>

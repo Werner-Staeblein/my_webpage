@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% load allauth i18n %}
+
+{% block content %}
+    <!-- Container to center the content -->
+    <div class="container mt-5 pt-3">
+        <!-- Row to center content horizontally -->
+        <div class="row justify-content-center align-items-center custom-margin-top">
+            <!-- Column with a fixed width for the form -->
+            <div class="col-md-6 col-lg-6 px-1">
+                <!-- Card component to provide styling and a background -->
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h1 class="card-title mb-4 text-center">{% trans "Sign Out" %}</h1>
+                        <p class="text-center mb-4 custom-label">{% trans 'Are you sure you want to sign out?' %}</p>
+
+                        {% url 'account_logout' as action_url %}
+                        <form method="post" action="{{ action_url }}" class="text-center">
+                            {% csrf_token %}
+                            {{ redirect_field }}
+
+                            <button type="submit" class="btn btn-primary w-50 mx-auto d-block custom-label my-5 rounded-lg custom-btn">{% trans 'Sign Out' %}</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

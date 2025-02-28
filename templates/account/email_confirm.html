@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block content %}
+    <!-- Container to center the content -->
+    <div class="container">
+        <!-- Row to center content horizontally -->
+        <div class="row justify-content-center align-items-center mt-5">
+            <!-- Column with a fixed width for the form -->
+            <div class="col-md-6 col-lg-6">
+                <!-- Card component to provide styling and a background -->
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <!-- Title of the card -->
+                        <h1 class="card-title mb-4 text-center">{% trans "Confirm Email Address" %}</h1>
+
+                        {% if confirmation %}
+                            {% with confirmation.email_address.user as user %}
+                            <p class="text-center mb-4">
+                                    {% blocktrans with email=confirmation.email_address.email user_name=user.get_full_name %}
+                                        Please confirm that <a href="mailto:{{ email }}">{{ email }}</a> is an email address for user {{ user_name }}.
+                                    {% endblocktrans %}
+                                </p>
+                            {% endwith %}
+                            {% url 'account_confirm_email' confirmation.key as action_url %}
+                            <form method="post" action="{{ action_url }}">
+                                {% csrf_token %}
+                                {{ redirect_field }}
+                                <button type="submit" class="btn btn-primary w-50 mx-auto d-block">{% trans "Confirm" %}</button>
+                            </form>
+                        {% else %}
+                            {% url 'account_email' as email_url %}
+                            <p class="text-center mb-4">
+                                {% blocktrans %}
+                                    This email confirmation link expired or is invalid. Please <a href="{{ email_url }}">issue a new email confirmation request</a>.
+                                {% endblocktrans %}
+                            </p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
