@@ -34,12 +34,6 @@ def navlink2(request):
     return render(request, "navlink2.html")
 
 
-
-def ships_view(request):
-    ships = starShips.objects.all()
-    context = {'ships': ships}
-    return render(request, "star_wars_data.html", context)
-
 # View to check if email exists
 def check_email_exists(request):
     email = request.GET.get('email')

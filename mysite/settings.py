@@ -16,6 +16,9 @@ from dotenv import load_dotenv
 
 load_dotenv()  # Loads the .env file and sets the environment variables
 
+SITE_NAME = 'wernerswebsite.com'  # das müsste auftauchen bei den versendeten emails
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -77,6 +80,11 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'mysite.urls'
+
+
+
+# check ob für DIRS ersetzt werden kann[os.path.join(BASE_DIR, 'templates')],
+
 
 TEMPLATES = [
     {
@@ -166,16 +174,16 @@ LOGOUT_REDIRECT_URL = "home"
 ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = False  # Do not redirect if logged in
 
 # the smtp.EmailBackend is used in production but not in development
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Email settings in settings.py
 EMAIL_HOST = 'smtp.gmail.com'  # Gmail's SMTP server
 EMAIL_PORT = 587  # Port for TLS
 EMAIL_USE_TLS = True  # Use TLS (Transport Layer Security)
 EMAIL_HOST_USER = 'codeinstitutetest0@gmail.com'  # Your Gmail address
-EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')  # Make sure this environment variable is set
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 
 print("Email password:", EMAIL_HOST_PASSWORD)
 print(os.getenv('EMAIL_HOST_PASSWORD'))

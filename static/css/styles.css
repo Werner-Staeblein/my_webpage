@@ -5,6 +5,9 @@
 }
 
 
+
+
+
 @import url('fonts.css');
 
 /* Fonts */
@@ -48,15 +51,18 @@
     --background-color-status: rgba(173, 216, 230, 0.6);
     --color-status-messages: rgb(35, 35, 37);
 
+    --font-color-default: rgb(35, 35, 37);
+    --font-color-small-screen: white;
+
     --custom-btn-background: rgba(173, 216, 230, 0.6);
     --custom-btn-focus-box-shadow: rgba(173, 216, 230);
     --custom-btn--color: rgb(35, 35, 37);
-    
-  
-  /* Smooth scroll behavior */
-  :root {
+
+}
+
+:root {
     scroll-behavior: smooth;
-  }
+}
 
 body{
     background: var(--background-main);
@@ -75,10 +81,16 @@ body{
     margin-right: auto;
     padding-left: 1.5rem;  /* Adjust padding to match your desired space */
     padding-right: 1.5rem; /* Adjust padding to match your desired space */
+    background-color: var(--background-main);
 }
 
 #section1 {
     margin-top: 4rem;
+}
+
+#section2,
+#section4{
+    background-color: var(--custom-btn-focus);
 }
 
 /* Ensure full height for html and body */
@@ -103,6 +115,41 @@ footer {
     margin-top: auto;
 }
 
+
+/*--------------------------------------------------------------
+# Scroll top button
+--------------------------------------------------------------*/
+
+.scroll-top {
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+    right: 15px;
+    bottom: -15px;
+    z-index: 99999;
+    background: red;
+    width: 44px;
+    height: 44px;
+    border-radius: 50px;
+    transition: all 0.4s;
+  }
+  
+  .scroll-top i {
+    font-size: 24px;
+    color: #fff;
+    line-height: 0;
+  }
+  
+  .scroll-top:hover {
+    background: rgba(248, 90, 64, 0.8);
+    color: #fff;
+  }
+  
+  .scroll-top.active {
+    visibility: visible;
+    opacity: 1;
+    bottom: 15px;
+  }
 
 /*---------------------------------------------------------------------------------
         Custom Styling of all the buttons and nav-links
@@ -141,12 +188,12 @@ footer {
   
 /* On hover, change the color to blue */
 .navbar-nav .nav-link:hover {
-    color: #007BFF !important; /* Blue color on hover */
+    color: var(--custom-btn--color) !important;
 }
   
 /* Active link color */
 .navbar-nav .nav-item.active .nav-link {
-    color: #FF5722; /* Orange color for the active link */
+    color: var(--custom-btn--color);
 }
 
 /*---------------------------------------------------------------------------------
@@ -182,25 +229,6 @@ footer {
 .alert-section{
     background: inherit;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*---------------------------------------------------------------------------------
                         Styling of login status in navbar
@@ -284,8 +312,6 @@ footer {
       transform: rotate(360deg);
     }
   }
-  
-
 
 /*---------------------------------------------------------------------------------
                         Styling of navbar and nav-links
@@ -334,14 +360,13 @@ footer {
 
 /* Add padding to body to prevent content from hiding behind fixed navbar */
 body {
-    padding-top: 60px;  /* Adjust padding based on navbar height */
+    padding-top: 60px;
 }
 
 /* Adjust margins and padding to prevent overlaps */
 body {
     padding-top: 56px; /* Space for fixed navbar */
 }
-
 
 /* Hide hamburger icon on screens 992px and above */
 @media (min-width: 992px) {
@@ -359,37 +384,36 @@ body {
 }
 
 
-
 /* For screens smaller than 992px, apply sliding effect */
 @media (max-width: 992px) {
-    #navbarNav {
-        position: fixed;
-        top: 0;
-        right: -100%; /* Initially off-screen */
-        width: 100%; /* Adjust width as needed */
-        height: 100vh; /* Full height */
-        background-color: #fff; /* Background color */
-        transition: right 0.1s ease-in-out;              
-        z-index: 999; /* Ensure it's below the hamburger */
-        padding-top: 50px;
-    }
-
-    #navbarNav.show {
-        right: 0;
-        background-color: green;
-    }
-
-
-    /* Make sure the hamburger icon stays in front */
-    .mobile-nav-toggle {
-        position: fixed;
-        top: 15px;
-        right: 15px;
-        z-index: 1000; /* Ensure it's above the navbar */
-        font-size: 2rem;
-        color: #333; /* Adjust color as needed */
-    }
+#navbarNav {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Initially off-screen */
+    width: 100%; /* Adjust width as needed */
+    height: 100vh;
+    background-color: #fff; /* Background color */
+    transition: right 0.1s ease-in-out;              
+    z-index: 999; /* Ensure it's below the hamburger */
+    padding-top: 50px;
 }
+
+#navbarNav.show {
+    right: 0;
+    background-color: var(--custom-btn-focus-box-shadow);
+}
+
+
+/* Make sure the hamburger icon stays in front */
+.mobile-nav-toggle {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 1000; /* Ensure it's above the navbar */
+    font-size: 2rem;
+    color: #333; /* Adjust color as needed */
+}}
+
 /* Adjust the spacing of nav items */
 #navbarNav .navbar-nav {
     display: flex;
@@ -418,21 +442,29 @@ body {
     }
 }
 
-/* @media (min-width: 992px) {
-    .navbar-nav {
-        display: flex;
-        width: 100%;
-        align-items: center;
-    }
-
-} */
-
-/* Hamburger icon vertical alignment. Hamburger is lifted "up" slightly to be best-aligned
-with the navbar-brand */
-
 .mobile-nav-toggle {
     margin-top: -0.6rem;  /* Adjust this value to move it slightly up */
 }
+
+/*--------------------------------------------------------------
+#       Styling of home.html | launch page
+--------------------------------------------------------------*/
+
+.jumbotron h1{
+    font-family: var(--font-primary);
+}
+
+
+
+
+
+
+
+
+
+/*--------------------------------------------------------------
+#       Media queries for smaller screens, mostly navbar
+--------------------------------------------------------------*/
 
 /* Custom styles to reduce margin-bottom/padding-bottom in the navbar on small screens */
 @media (max-width: 991px) {
@@ -443,9 +475,23 @@ with the navbar-brand */
 
     /* Optionally reduce padding for each navbar item */
     .navbar-nav .nav-link {
-        padding-bottom: 0.25rem;  /* Adjust padding as needed */
+        margin-left: 3rem;
+        font-size: 3rem !important;
+        font-weight: bold;
+        color: var(--font-color-small-screen) !important;
     }
+
+    /* .mobile-nav-toggle ist der Hamburger und das "X" */
     .mobile-nav-toggle {
-        font-size: 2rem;
-     }
-}}
+        font-size: 3rem;
+    }
+
+    .navbar-nav .nav-link:first-child{
+        margin-top: 3rem;
+        color: red !important;
+    }
+
+    .custom-margin-top{
+        margin-top: 4rem;
+    }
+}

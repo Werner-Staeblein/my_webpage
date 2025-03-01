@@ -15,7 +15,6 @@ urlpatterns = [
     path('navlink1/', views.navlink1, name="navlink1"),
     path('navlink2/', views.navlink2, name="navlink2"),
     
-    path('ships/', views.ships_view, name="ships"),
     path('verification-sent/', views.verification_sent, name='verification_sent'),
 
     path('login/', CustomLoginView.as_view(), name='account_login'),

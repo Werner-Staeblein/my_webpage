@@ -11,7 +11,7 @@
     <div class="container">
         <!-- Jumbotron Section -->
         <div class="jumbotron bg-light p-4 rounded shadow-sm">
-            <h1 class="display-4 text-center mb-4">{% trans "Welcome to My Django Project" %}</h1>
+            <h1 class="display-4 text-center mb-4 animate__animated animate__bounceIn animate__delay-2.0s">{% trans "Welcome to My Django Project" %}</h1>
             <p class="lead text-center">
                 {% trans "This is a simple, yet effective, introduction to our project. We aim to provide the best experience possible." %}
             </p>
@@ -20,39 +20,32 @@
                 <img src="{% static 'images/default-placeholder.jpg' %}" alt="{% trans 'Placeholder Image' %}" class="img-fluid rounded">
             </div>
         </div>
-
-        <!-- Additional Content -->
-        <div class="row mt-5">
-
-            <h1 class="text-center">Furher content comes here for users not logged in</h1>
-
-        </div>
     </div>
 
     <!-- Dummy Content Sections to Test Scrolling -->
-    <section id="section1">
+    <section id="section1" data-aos="zoom-in" data-aos-delay="300">
         <h2>Section 1</h2>
-        <p>This is some dummy content for Section 1. Scroll down to see the navbar behavior.</p>
+        <p>This is some dummy content for Section 1.</p>
     </section>
     
-    <section id="section2">
+    <section id="section2" data-aos="zoom-in" data-aos-delay="300">
         <h2>Section 2</h2>
-        <p>This is some dummy content for Section 2. The navbar should remain fixed at the top when you scroll.</p>
+        <p>This is some dummy content for Section 2.</p>
     </section>
     
-    <section id="section3">
+    <section id="section3" data-aos="zoom-in" data-aos-delay="300">
         <h2>Section 3</h2>
-        <p>This is some dummy content for Section 3. Keep scrolling to verify the navbar position.</p>
+        <p>This is some dummy content for Section 3.</p>
     </section>
     
-    <section id="section4">
+    <section id="section4" data-aos="zoom-in" data-aos-delay="300">
         <h2>Section 4</h2>
-        <p>This is some dummy content for Section 4. The navbar should always stay at the top of the page while scrolling.</p>
+        <p>This is some dummy content for Section 4.</p>
     </section>
     
-    <section id="section5">
+    <section id="section5" data-aos="zoom-in" data-aos-delay="300">
         <h2>Section 5</h2>
-        <p>This is some dummy content for Section 5. Check how the navbar behaves while scrolling here.</p>
+        <p>This is some dummy content for Section 5.</p>
     </section>
         
 

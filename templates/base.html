@@ -10,154 +10,178 @@
     <!-- Link to Bootstrap CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"/>
+      rel="stylesheet"
+    />
 
-      <!-- Vendor CSS Files -->
-    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" />
-    <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.min.css' %}" rel="stylesheet" />
+    <!-- Vendor CSS Files -->
+    <link
+      href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}"
+      rel="stylesheet"
+    />
+    <link
+      href="{% static 'vendor/bootstrap-icons/bootstrap-icons.min.css' %}"
+      rel="stylesheet"
+    />
     <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet" />
-    <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet" />
+    <link
+      href="{% static 'vendor/swiper/swiper-bundle.min.css' %}"
+      rel="stylesheet"
+    />   
+    <link 
+      href="{% static 'vendor/animatecss/animate.min.css' %}"
+      rel="stylesheet"
+    />
+
+
+
     
+
     {% load i18n %}
     <!-- Link to Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
   </head>
 
   <body>
-
-   
-        {% if messages %}
-      <div class="messages">
-        {% for message in messages %}
-          <div class="message {{ message.tags }}">
-            {{ message }}
-          </div>
-        {% endfor %}
-      </div>
+    {% if messages %}
+    <div class="messages">
+      {% for message in messages %}
+      <div class="message {{ message.tags }}">{{ message }}</div>
+      {% endfor %}
+    </div>
     {% endif %}
-    
-    
-    
-        <header>
-    
-          <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container d-flex align-items-center">
-              <a class="navbar-brand" href="{% url 'home' %}">
-                <img src="{% static 'images/digi_finance_logo.png' %}" alt="Digi Finance Logo" class="img-fluid" style="max-width: 100px; opacity: 0.7">
-            </a>
-                <!-- Mobile Navigation Toggle (Hamburger Icon) -->
-                <i class="mobile-nav-toggle mobile-nav-show bi bi-list" id="mobile-nav-show"></i> <!-- Hamburger Icon -->
-                <i class="mobile-nav-toggle mobile-nav-hide bi bi-x" id="mobile-nav-hide" style="display: none;"></i> <!-- "X" Icon -->
-        
-                <div class="collapse navbar-collapse" id="navbarNav">
 
-                    <ul class="navbar-nav w-100 d-flex flex-column flex-lg-row">
-                        <!-- Home and About links: Display on the left -->
-                         
-                        <div class="d-flex flex-column flex-lg-row me-auto">
-                            <li class="nav-item">
-                                <a class="nav-link nav-label" href="{% url 'home' %}">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link nav-label" href="{% url 'about' %}">About</a>
-                            </li>
-                            <li class="nav-item">
-                              <a class="nav-link nav-label" href="{% url 'navlink1' %}">navlink1</a>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link nav-label" href="{% url 'navlink2' %}">navlink2</a>
-                        </li>
-                        </div>
-        
-                        <!-- Login/Logout/SignUp links: Align to the right -->
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container d-flex align-items-center">
+          <a class="navbar-brand" href="{% url 'home' %}">
+            <img
+              src="{% static 'images/digi_finance_logo.png' %}"
+              alt="Digi Finance Logo"
+              class="img-fluid"
+              style="max-width: 100px; opacity: 0.7"
+            />
+          </a>
+          <!-- Mobile Navigation Toggle (Hamburger Icon) -->
+          <i
+            class="mobile-nav-toggle mobile-nav-show bi bi-list"
+            id="mobile-nav-show"
+          ></i>
+          <!-- Hamburger Icon -->
+          <i
+            class="mobile-nav-toggle mobile-nav-hide bi bi-x"
+            id="mobile-nav-hide"
+            style="display: none"
+          ></i>
+          <!-- "X" Icon -->
 
-                        <div class="d-flex flex-column flex-lg-row ms-lg-0">
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav w-100 d-flex flex-column flex-lg-row">
+              <!-- Home and About links: Display on the left -->
 
-                            {% if user.is_authenticated %}
-                            <li class="nav-item mb-2 mb-lg-0">
-                                <a class="nav-link nav-label" href="{% url 'account_logout' %}">Logout</a>
-                            </li>
-                            {% else %}
-                            <li class="nav-item mb-2 mb-lg-0">
-                                <a class="nav-link nav-label" href="{% url 'account_login' %}">Login</a>
-                            </li>
-                            <li class="nav-item mb-2 mb-lg-0">
-                                <a class="nav-link nav-label" href="{% url 'account_signup' %}">SignUp</a>
-                            </li>
-                            {% endif %}
-                        </div>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-            
-                
-                        
-        
-        </header>
-    
-        <!-- Login status message -->
-        {% if user.is_authenticated %}
-        <section class="container my-3">
-          <div class="login-status">
-            {% trans "Logged in as" %} {{ user.username }}
+              <div class="d-flex flex-column flex-lg-row me-auto">
+                <li class="nav-item">
+                  <a class="nav-link nav-label" href="{% url 'home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link nav-label" href="{% url 'about' %}"
+                    >About</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link nav-label" href="{% url 'navlink1' %}"
+                    >navlink1</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link nav-label" href="{% url 'navlink2' %}"
+                    >navlink2</a
+                  >
+                </li>
+              </div>
+
+              <!-- Login/Logout/SignUp links: Align to the right -->
+
+              <div class="d-flex flex-column flex-lg-row ms-lg-0">
+                {% if user.is_authenticated %}
+                <li class="nav-item mb-2 mb-lg-0">
+                  <a
+                    class="nav-link nav-label"
+                    href="{% url 'account_logout' %}"
+                    >Logout</a
+                  >
+                </li>
+                {% else %}
+                <li class="nav-item mb-2 mb-lg-0">
+                  <a class="nav-link nav-label" href="{% url 'account_login' %}"
+                    >Login</a
+                  >
+                </li>
+                <li class="nav-item mb-2 mb-lg-0">
+                  <a
+                    class="nav-link nav-label"
+                    href="{% url 'account_signup' %}"
+                    >SignUp</a
+                  >
+                </li>
+                {% endif %}
+              </div>
+            </ul>
           </div>
-        </section>
-        {% else %}
-        <section class="container my-3">
-          <div class="login-status">
-            {% trans "Not logged in" %}
-          </div>
-        </section>
-        {% endif %}
-    
-        <main>
-          <!-- Message to user on successful login or successful logout -->
-          {% if messages %}
-          <section class="container my-3 alert-section">
-            {% for message in messages %}
-            <div
-              class="alert alert-custom alert-success-custom d-flex justify-content-between align-items-center alert-dismissible fade show"
-              role="alert"
-            >
-              <span>{{ message }}</span>
-              <button
-                type="button"
-                class="btn-close custom-close"
-                data-bs-dismiss="alert"
-                aria-label="Close"
-              ></button>
-            </div>
-            {% endfor %}
-          </section>
-          {% endif %} 
-          
-          {% block content %}
-          
-          {% endblock content %}
-        </main>
-    
-        <footer class="text-center mt-4">
-          <p>&copy; 2024 My Django Project. All rights reserved.</p>
-        </footer>
-    
-        {% comment %} <div id="preloader"></div> {% endcomment %}
+        </div>
+      </nav>
+    </header>
 
-        
+    <!-- Login status message -->
+    {% if user.is_authenticated %}
+    <section class="container my-3">
+      <div class="login-status">
+        {% trans "Logged in as" %} {{ user.username }}
+      </div>
+    </section>
+    {% endif %}
 
-        <!-- Link to Bootstrap JS and dependencies -->
-        <script>
-        {% comment %} Vendor JS files {% endcomment %}
-          <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-          <script src="{% static 'vendor/aos/aos.js' %}"></script>
-          <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
-          <script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+    <main>
+      <!-- Message to user on successful login or successful logout -->
+      {% if messages %}
+      <section class="container my-3 alert-section">
+        {% for message in messages %}
+        <div
+          class="alert alert-custom alert-success-custom d-flex justify-content-between align-items-center alert-dismissible fade show"
+          role="alert"
+        >
+          <span>{{ message }}</span>
+          <button
+            type="button"
+            class="btn-close custom-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+          ></button>
+        </div>
+        {% endfor %}
+      </section>
+      {% endif %} {% block content %} {% endblock content %}
+    </main>
 
-       <!-- Link to Custom JavaScript -->
-        <script src="{% static 'js/scripts.js' %}"></script>
-      </body>
-    </html>
-    
-    
-    
-    
+    <footer class="text-center mt-4">
+      <p>&copy; 2024 My Django Project. All rights reserved.</p>
+    </footer>
+
+    <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    {% comment %}
+    <div id="preloader"></div>
+    {% endcomment %}
+
+    <!-- Link to Bootstrap JS and dependencies -->
+    <script>
+      {% comment %} Vendor JS files {% endcomment %}
+        <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}">
+    </script>
+    <script src="{% static 'vendor/aos/aos.js' %}"></script>
+    <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+
+    <!-- Link to Custom JavaScript -->
+    <script src="{% static 'js/scripts.js' %}"></script>
+  </body>
+</html>
