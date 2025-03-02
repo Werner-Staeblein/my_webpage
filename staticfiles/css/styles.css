@@ -4,7 +4,6 @@
     box-sizing: border-box;
 }
 
-
 @import url('fonts.css');
 
 /* Fonts */
@@ -22,45 +21,38 @@
                     Custom properties for colors, backgrounds, and typography
 ----------------------------------------------------------------------------------------*/
 
-/* :root {
-    --headline: 
-    --text:  
-    --text2: 
-    --background:
-    --background-shade: 
-    --alternate-bg: 
-
-    Custom properties for success and error messages
-    --alternate-bg-success: 
-    --alternate-bg-error:  */
-
-    /*Custom properties sans-serif typography*/
-
-    /* --font-roboto-light: 
-    --font-roboto-regular:
-    --font-roboto-bold:  
-}*/
-
 /* Colors */
 :root {
     --background-main: rgba(173, 216, 230, 0.2); /*Eastern blue*/
-    
+    --bacnground-nav-small-screens: rgba(173, 216, 230);
+
     --background-color-status: rgba(173, 216, 230, 0.6);
     --color-status-messages: rgb(35, 35, 37);
+
+    --font-color-default: rgb(35, 35, 37);
+    --font-color-small-screen: white;
 
     --custom-btn-background: rgba(173, 216, 230, 0.6);
     --custom-btn-focus-box-shadow: rgba(173, 216, 230);
     --custom-btn--color: rgb(35, 35, 37);
-    
-  
-  /* Smooth scroll behavior */
-  :root {
+
+}
+
+:root {
     scroll-behavior: smooth;
-  }
+}
 
 body{
     background: var(--background-main);
 }
+
+/* Die Klasse .custom-margin-top wird genutzt für login, pw-reset*/
+
+
+.custom-margin-top{
+    margin-top: 4rem;
+}
+
 
 /* Ensure sections have the same left and right margins as the .container */
 #section1,
@@ -69,16 +61,22 @@ body{
 #section4,
 #section5 {
     width: 80%;
-    height: 100vh;
+    height: auto;
     max-width: 1140px; /* Same as the largest container size */
     margin-left: auto;
     margin-right: auto;
     padding-left: 1.5rem;  /* Adjust padding to match your desired space */
     padding-right: 1.5rem; /* Adjust padding to match your desired space */
+    background-color: var(--background-main);
 }
 
 #section1 {
     margin-top: 4rem;
+}
+
+#section2,
+#section4{
+    background-color: var(--custom-btn-focus);
 }
 
 /* Ensure full height for html and body */
@@ -103,6 +101,41 @@ footer {
     margin-top: auto;
 }
 
+/*--------------------------------------------------------------
+# Scroll top button
+--------------------------------------------------------------*/
+
+.scroll-top {
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+    right: 15px;
+    bottom: -15px;
+    z-index: 99999;
+    background-color: rgb(0, 0, 255, 0.7) !important;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    transition: all 0.4s;
+  }
+  
+  .scroll-top i {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #fff;
+    line-height: 0;
+  }
+  
+  .scroll-top:hover {
+    background: rgba(248, 90, 64, 0.8);
+    color: #fff;
+  }
+  
+  .scroll-top.active {
+    visibility: visible;
+    opacity: 1;
+    bottom: 15px;
+  }
 
 /*---------------------------------------------------------------------------------
         Custom Styling of all the buttons and nav-links
@@ -136,17 +169,19 @@ footer {
 
 /* Change the default color of nav links */
 .navbar-nav .nav-link {
-    color: #4CAF50 !important; /* Green color for the text */
+    color: var(--font-color-default) !important;
+    font-size: 1.6rem !important;
+    font-weight: bold;
 }
   
 /* On hover, change the color to blue */
 .navbar-nav .nav-link:hover {
-    color: #007BFF !important; /* Blue color on hover */
+    color: red !important;
 }
   
 /* Active link color */
 .navbar-nav .nav-item.active .nav-link {
-    color: #FF5722; /* Orange color for the active link */
+    color: var(--custom-btn--color);
 }
 
 /*---------------------------------------------------------------------------------
@@ -182,25 +217,6 @@ footer {
 .alert-section{
     background: inherit;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*---------------------------------------------------------------------------------
                         Styling of login status in navbar
@@ -284,8 +300,6 @@ footer {
       transform: rotate(360deg);
     }
   }
-  
-
 
 /*---------------------------------------------------------------------------------
                         Styling of navbar and nav-links
@@ -334,14 +348,13 @@ footer {
 
 /* Add padding to body to prevent content from hiding behind fixed navbar */
 body {
-    padding-top: 60px;  /* Adjust padding based on navbar height */
+    padding-top: 60px;
 }
 
 /* Adjust margins and padding to prevent overlaps */
 body {
     padding-top: 56px; /* Space for fixed navbar */
 }
-
 
 /* Hide hamburger icon on screens 992px and above */
 @media (min-width: 992px) {
@@ -359,37 +372,36 @@ body {
 }
 
 
-
 /* For screens smaller than 992px, apply sliding effect */
 @media (max-width: 992px) {
-    #navbarNav {
-        position: fixed;
-        top: 0;
-        right: -100%; /* Initially off-screen */
-        width: 100%; /* Adjust width as needed */
-        height: 100vh; /* Full height */
-        background-color: #fff; /* Background color */
-        transition: right 0.1s ease-in-out;              
-        z-index: 999; /* Ensure it's below the hamburger */
-        padding-top: 50px;
-    }
-
-    #navbarNav.show {
-        right: 0;
-        background-color: green;
-    }
-
-
-    /* Make sure the hamburger icon stays in front */
-    .mobile-nav-toggle {
-        position: fixed;
-        top: 15px;
-        right: 15px;
-        z-index: 1000; /* Ensure it's above the navbar */
-        font-size: 2rem;
-        color: #333; /* Adjust color as needed */
-    }
+#navbarNav {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Initially off-screen */
+    width: 100%; /* Adjust width as needed */
+    height: 100vh;
+    background-color: #fff; /* Background color */
+    transition: right 0.1s ease-in-out;              
+    z-index: 999; /* Ensure it's below the hamburger */
+    padding-top: 50px;
 }
+
+#navbarNav.show {
+    right: 0;
+    background-color: var(--custom-btn-focus-box-shadow);
+}
+
+
+/* Make sure the hamburger icon stays in front */
+.mobile-nav-toggle {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 1000; /* Ensure it's above the navbar */
+    font-size: 2rem;
+    color: #333; /* Adjust color as needed */
+}}
+
 /* Adjust the spacing of nav items */
 #navbarNav .navbar-nav {
     display: flex;
@@ -418,34 +430,82 @@ body {
     }
 }
 
-/* @media (min-width: 992px) {
-    .navbar-nav {
-        display: flex;
-        width: 100%;
-        align-items: center;
-    }
-
-} */
-
-/* Hamburger icon vertical alignment. Hamburger is lifted "up" slightly to be best-aligned
-with the navbar-brand */
-
 .mobile-nav-toggle {
     margin-top: -0.6rem;  /* Adjust this value to move it slightly up */
 }
 
-/* Custom styles to reduce margin-bottom/padding-bottom in the navbar on small screens */
-@media (max-width: 991px) {
-    /* Remove margin-bottom for the navbar items inside the hamburger menu */
-    .navbar-nav .nav-item {
-        margin-bottom: 0 !important;  /* Reset margin-bottom to 0 */
-    }
+/*--------------------------------------------------------------
+#       Styling of home.html | launch page
+--------------------------------------------------------------*/
 
-    /* Optionally reduce padding for each navbar item */
-    .navbar-nav .nav-link {
-        padding-bottom: 0.25rem;  /* Adjust padding as needed */
-    }
-    .mobile-nav-toggle {
-        font-size: 2rem;
-     }
+.jumbotron h1{
+    font-family: var(--font-primary);
+}
+
+/*--------------------------------------------------------------
+#       Media queries for smaller screens, mostly navbar
+--------------------------------------------------------------*/
+
+@media (max-width: 992px) {
+
+#navbarNav {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Initially off-screen */
+    width: 100%; /* Adjust width as needed */
+    height: 100vh; /* Full height */
+    background-color: var(--bacnground-nav-small-screens)!important; /* Background color */
+    transition: right 0.1s ease-in-out;              
+    z-index: 999; /* Ensure it's below the hamburger */
+    padding-top: 50px;
+}
+
+#navbarNav.show {
+    right: 0;
+}
+
+/* Make sure the hamburger icon stays in front */
+
+.mobile-nav-toggle {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 1000; /* Ensure it's above the navbar */
+    font-size: 3rem;
+    color: #333; /* Adjust color as needed */
+}
+
+/* Adjust the spacing of nav items */
+#navbarNav .navbar-nav {
+    display: flex;
+    flex-direction: column;
+    padding-left: 3rem;
+    margin-top: 2rem;
+}
+
+/* #navbarNav .navbar-nav,
+#navbarNav .navbar-nav .nav-item,
+#navbarNav .navbar-nav .nav-link {
+    color: white !important;
+} */
+
+.navbar .navbar-nav .nav-link {
+    color: white !important;
+    font-size: 2rem !important;
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.3) !important;
+    font-weight: bold;
+    
+    
 }}
+
+@media (max-width: 768px) {
+
+    .custom-btn {
+        font-size: 1rem;
+        width: 80% !important;
+        margin: 0 auto;
+        
+    }
+}
+
+

@@ -19,12 +19,38 @@ document.addEventListener('DOMContentLoaded', function() {
         }, hideDuration);
     });
 
+  /**
+   * Scroll top button
+   */
+  const scrollTop = document.querySelector('.scroll-top');
+if (scrollTop) {
+    const togglescrollTop = function() {
+        window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
+    };
+
+    // Call togglescrollTop on page load to ensure the correct visibility on initial load
+    window.addEventListener('load', togglescrollTop);
+
+    // Call togglescrollTop when the user scrolls
+    document.addEventListener('scroll', togglescrollTop);
+
+    // Scroll to top when the button is clicked
+    scrollTop.addEventListener('click', function(e) {
+        e.preventDefault();  // Prevent the default anchor click behavior
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
+
+
     const mobileNavShow = document.getElementById('mobile-nav-show');
     const mobileNavHide = document.getElementById('mobile-nav-hide');
     const navbarNav = document.getElementById('navbarNav');
 
     // Ensure the navbarNav transition is ready when the page loads
-    navbarNav.style.transition = 'right 2s ease-in-out'; // This ensures the transition is set from the beginning
+    navbarNav.style.transition = 'right 1.5s ease-in-out';
     navbarNav.style.right = '-100%'; // Make sure it starts off-screen initially
 
     // Show the navbar when the hamburger icon is clicked
@@ -65,5 +91,22 @@ if (preloader) {
     }, 1000);  // 1 second delay to match the fade-out transition duration
   }, 500); // Show preloader for XX seconds before fading out
 }
+
+
+/**
+   * Animation on scroll function and init
+   */
+function aos_init() {
+    AOS.init({
+      duration: 1000,
+      easing: 'ease-in-out',
+      once: true,
+      mirror: false
+    });
+  }
+  window.addEventListener('load', () => {
+    aos_init();
+  });
+
 });
 

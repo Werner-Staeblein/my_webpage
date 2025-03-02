@@ -27,13 +27,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-ym%wr-!ct78cy%on0%@c_ea5m8ha3hap80dx68^769r=ouykh7'
+
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'WernerStab.pythonanywhere.com']
 
 # Application definition
 
@@ -182,7 +182,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'  # Gmail's SMTP server
 EMAIL_PORT = 587  # Port for TLS
 EMAIL_USE_TLS = True  # Use TLS (Transport Layer Security)
-EMAIL_HOST_USER = 'codeinstitutetest0@gmail.com'  # Your Gmail address
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 
 print("Email password:", EMAIL_HOST_PASSWORD)
@@ -197,12 +197,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # For sending password reset emails
 DEFAULT_FROM_EMAIL = 'codeinstitutetest0@gmail.com'
 
-# PASSWORD_RESET_EMAIL_HTML = 'registration/password_reset_email.html'  # Optional: Specify HTML template
-# PASSWORD_RESET_EMAIL = 'registration/password_reset_email.txt'  # Optional: Specify plain text template
-
-
-
-
+# PASSWORD_RESET_EMAIL_HTML = 'registration/password_reset_email.html'
+# PASSWORD_RESET_EMAIL = 'registration/password_reset_email.txt'  
 
 # Debugging email backend
 

@@ -26,15 +26,11 @@
     <link
       href="{% static 'vendor/swiper/swiper-bundle.min.css' %}"
       rel="stylesheet"
-    />   
-    <link 
+    />
+    <link
       href="{% static 'vendor/animatecss/animate.min.css' %}"
       rel="stylesheet"
     />
-
-
-
-    
 
     {% load i18n %}
     <!-- Link to Custom CSS -->
@@ -166,20 +162,20 @@
       <p>&copy; 2024 My Django Project. All rights reserved.</p>
     </footer>
 
-    <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <a
+      href="#"
+      class="scroll-top d-flex align-items-center justify-content-center custom-label"
+      ><i class="bi bi-arrow-up-short"></i
+    ></a>
 
     {% comment %}
     <div id="preloader"></div>
     {% endcomment %}
 
-    <!-- Link to Bootstrap JS and dependencies -->
-    <script>
-      {% comment %} Vendor JS files {% endcomment %}
-        <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}">
-    </script>
-    <script src="{% static 'vendor/aos/aos.js' %}"></script>
-    <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
-    <script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+    <script src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/vendor/aos/aos.js"></script>
+    <script src="/static/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="/static/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 
     <!-- Link to Custom JavaScript -->
     <script src="{% static 'js/scripts.js' %}"></script>
