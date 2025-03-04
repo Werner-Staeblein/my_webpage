@@ -1,8 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 
 @import url('fonts.css');
 
@@ -24,18 +28,19 @@
 /* Colors */
 :root {
     --background-main: rgba(173, 216, 230, 0.2); /*Eastern blue*/
-    --bacnground-nav-small-screens: rgba(173, 216, 230);
+    --background-nav-small-screens: rgba(173, 216, 230);
 
     --background-color-status: rgba(173, 216, 230, 0.6);
-    --color-status-messages: rgb(35, 35, 37);
+    --color-status-messages: rgba(173, 216, 230);
 
-    --font-color-default: rgb(35, 35, 37);
+    --font-color-default: rgb(37, 150, 190);
     --font-color-small-screen: white;
 
     --custom-btn-background: rgba(173, 216, 230, 0.6);
     --custom-btn-focus-box-shadow: rgba(173, 216, 230);
     --custom-btn--color: rgb(35, 35, 37);
 
+    --scrolltop-hover-navlink: rgb(22, 146, 187,0.8)       
 }
 
 :root {
@@ -50,7 +55,11 @@ body{
 
 
 .custom-margin-top{
-    margin-top: 4rem;
+    margin-top: 2.5rem;
+}
+
+.custom-negative-margin-top{
+    margin-top: -4rem;
 }
 
 
@@ -71,7 +80,7 @@ body{
 }
 
 #section1 {
-    margin-top: 4rem;
+    margin-top: 6rem;
 }
 
 #section2,
@@ -112,30 +121,25 @@ footer {
     right: 15px;
     bottom: -15px;
     z-index: 99999;
-    background-color: rgb(0, 0, 255, 0.7) !important;
+    background-color: var(--scrolltop-hover-navlink) !important;
     width: 3rem;
     height: 3rem;
     border-radius: 50%;
     transition: all 0.4s;
   }
   
-  .scroll-top i {
+.scroll-top i {
     font-size: 2.5rem;
     font-weight: bold;
     color: #fff;
     line-height: 0;
-  }
-  
-  .scroll-top:hover {
-    background: rgba(248, 90, 64, 0.8);
-    color: #fff;
-  }
-  
-  .scroll-top.active {
+} 
+
+.scroll-top.active {
     visibility: visible;
     opacity: 1;
     bottom: 15px;
-  }
+}
 
 /*---------------------------------------------------------------------------------
         Custom Styling of all the buttons and nav-links
@@ -171,12 +175,13 @@ footer {
 .navbar-nav .nav-link {
     color: var(--font-color-default) !important;
     font-size: 1.6rem !important;
-    font-weight: bold;
+    margin-right: 1rem;
+    
 }
   
 /* On hover, change the color to blue */
 .navbar-nav .nav-link:hover {
-    color: red !important;
+    color: var(--scrolltop-hover-navlink) !important;
 }
   
 /* Active link color */
@@ -186,36 +191,61 @@ footer {
 
 /*---------------------------------------------------------------------------------
             Customise messaging system on login and logout
+            Customise confirmation message on sign-up
 ----------------------------------------------------------------------------------*/
 
-/* Custom alert styles */
-.alert-custom {
-    background-color: #d4edda; /* Greenish background */
-    border-color: #c3e6cb; /* Border color matching the background */
+/* Base styling for all alerts */
+.alert {
+    display: flex;                   /* Flexbox layout to position text and button */
+    justify-content: space-between;     /* Align the message text to the left */
+    flex-direction: column;
+    align-items: center;             /* Vertically center content */
     font-size: 1.1rem;
-    border-radius: 0.25rem;
-    padding: 10px 15px;
+    font-weight: bold;
+    text-align: center;                /* Align text to the left */
+    max-width: 85%;
+    padding: 1.1rem 1.3rem;
+    margin: 0 auto 1rem auto;
+    /* position: relative;               */
+    border-radius: 8px;              /* Rounded corners for the alert */
+    /* background-color: white; */
+    /* z-index: 9999;          */
   }
-  
-  .alert-success-custom {
-    color: #155724; /* Dark green color */
-  }
-  
-  /* Custom close button */
-  .custom-close {
-    background-color: transparent;
-    border: none;
-    font-size: 1.5rem;
-    color: #155724; /* Green color for close button */
-  }
-  
-  .custom-close:hover {
-    color: #1e7e34; /* Darker green for hover */
-  }
-  
 
-.alert-section{
-    background: inherit;
+.alert-success,
+.alert-info,
+.alert-warning {
+    background-color: var(--scrolltop-hover-navlink);
+    color: white; 
+}
+  
+.alert-danger {
+    background-color: rgba(255,0,0);
+    color: white; 
+}
+
+
+
+
+
+
+/* Custom styling for confirmation messages */
+.confirmation-message {
+font-family: Arial, sans-serif;
+font-size: 16px;
+color: #4CAF50;
+background-color: #f9f9f9;
+padding: 10px;
+border-radius: 5px;
+border: 1px solid #ddd;
+display: inline-block;
+}
+
+/* Styling for email address */
+.email-address {
+font-weight: bold;
+color: #007BFF; /* Blue color for the email address */
+text-decoration: underline;
 }
 
 /*---------------------------------------------------------------------------------
@@ -261,6 +291,12 @@ footer {
     margin-top: 6rem !important;
 }
 
+.jumbotron h1{
+    font-family: 'Dancing Script', cursive !important;
+    font-weight: bold;
+    font-size: 4rem;
+}
+
 
 /*--------------------------------------------------------------
 # Preloader
@@ -281,11 +317,11 @@ footer {
   #preloader:before {
     content: "";
     position: absolute;
-    top: 40%;
-    left: 33%;
+    top: 30%;
+    left: 30%;
     transform: translate(-50%, -50%);
     border: 1rem solid #fff;
-    border-color: #007bff transparent #007bff transparent;
+    border-color: var(--custom-btn-background) transparent var(--custom-btn-background) transparent;
     border-radius: 50%;
     width: 10rem;
     height: 10rem;
@@ -300,35 +336,6 @@ footer {
       transform: rotate(360deg);
     }
   }
-
-/*---------------------------------------------------------------------------------
-                        Styling of navbar and nav-links
-----------------------------------------------------------------------------------*/
-
-/* .navbar {
-    background-color: var(--background);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.navbar-brand {
-    font-weight: var(--font-roboto-bold);
-    color: var(--headline);
-}
-
-.nav-link {
-    /* font-family: var(--font-roboto-regular); */
-    /* color: var(--text2); */
-    /* font-size: 1.1rem;
-    font-weight: bold;
-    padding: 1rem 1rem;
-    margin-left: 1rem;
-    transition: color 0.3s ease;
-} */
-
-/* .nav-link.active {
-    background-color: orange;
-    border-radius: 0.3rem;
-} */ 
 
 /*-------------------------------------------------------------------------------------
 /* Fixed Navbar - Navbar fixed to top when user scrolls down on larger screens 
@@ -391,7 +398,6 @@ body {
     background-color: var(--custom-btn-focus-box-shadow);
 }
 
-
 /* Make sure the hamburger icon stays in front */
 .mobile-nav-toggle {
     position: fixed;
@@ -413,34 +419,69 @@ body {
     margin-bottom: 10px; /* Add space between nav items */
 }
 
-#navbarNav .navbar-nav .nav-link {
-    font-size: 1.2rem; /* Optional: Increase font size for better visibility */
-}
-
-/* For larger screens, navbar should behave normally without sliding */
 @media (min-width: 992px) {
     #navbarNav {
-        position: static; /* Normal positioning for larger screens */
-        right: 0; /* No sliding */
-        width: auto; /* Default width */
+        position: static; /* static position of nav on large screens */
+        right: 0; /* No sliding of nav on large screens */
+        width: auto;
     }
 
     .mobile-nav-toggle {
-        display: none; /* Hide the hamburger icon */
+        display: none; /* The hamburger item not shown on large screens */
+    }
+
+    #navbarNav .navbar-nav .nav-link {
+        font-size: 1.2rem; /* On large screens nav-item font-size */
+        position: relative;
+        padding-bottom: 5px; /* Adds space for the :hover line below */
+        text-decoration: none;
+    }       
+      
+    .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: 0; /* Line positioned at the bottom of the link */
+        left: 0;
+        width: 0%; /* Line starts with no width */
+        height: 3px;
+        background-color: var(--font-color-default);
+        transition: width 0.3s ease
+    }
+
+    .nav-link:hover::after {
+        width: 100%; /* Makes line below nav-link full-width on hover */
     }
 }
 
-.mobile-nav-toggle {
-    margin-top: -0.6rem;  /* Adjust this value to move it slightly up */
+    .mobile-nav-toggle {
+        margin-top: -0.6rem;  /* Adjust this value to move it slightly up */
 }
 
 /*--------------------------------------------------------------
 #       Styling of home.html | launch page
 --------------------------------------------------------------*/
 
-.jumbotron h1{
-    font-family: var(--font-primary);
+
+
+
+
+
+
+
+/*--------------------------------------------------------------
+#       Styling of coding page
+--------------------------------------------------------------*/
+
+.tech-stack-img {
+    width: 100%;  /* Ensures the image takes up the full width of the column */
+    max-width: 6rem;  /* You can adjust this value to fit your needs */
+    height: auto;  /* Keeps the aspect ratio intact */
 }
+
+.span-font-size{
+    font-size: 5rem;
+}
+
 
 /*--------------------------------------------------------------
 #       Media queries for smaller screens, mostly navbar
@@ -454,7 +495,7 @@ body {
     right: -100%; /* Initially off-screen */
     width: 100%; /* Adjust width as needed */
     height: 100vh; /* Full height */
-    background-color: var(--bacnground-nav-small-screens)!important; /* Background color */
+    background-color: var(--background-nav-small-screens)!important;
     transition: right 0.1s ease-in-out;              
     z-index: 999; /* Ensure it's below the hamburger */
     padding-top: 50px;
@@ -490,13 +531,17 @@ body {
 } */
 
 .navbar .navbar-nav .nav-link {
-    color: white !important;
-    font-size: 2rem !important;
-    text-shadow: 2px 2px 3px rgba(0,0,0,0.3) !important;
-    font-weight: bold;
-    
-    
+    color: var(--font-color-default) !important;
+    font-size: 1.7rem !important;        
 }}
+
+/* Preloader soll auf large screen nicht sichtbar sein */
+
+@media (min-width: 768px) {
+    #preloader {
+        display: none;
+    }       
+}
 
 @media (max-width: 768px) {
 
@@ -506,6 +551,25 @@ body {
         margin: 0 auto;
         
     }
+
+/* Preloader auf screen bis 767 zentriert | unterschiedliche top/left für
+screen-sizes zwischen 360 bis 767 */
+    #preloader:before {
+        top: 30%;
+        left: 40%;
+        transform: translate(-50%, -50%);
+    }
+      
+}
+
+/* Preloader auf screen bis 430 zentriert */
+@media (max-width: 430px) {
+    #preloader:before {
+        top: 30%;
+        left: 33%;
+        transform: translate(-50%, -50%);
+    }
+      
 }
 
 
