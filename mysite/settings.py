@@ -31,7 +31,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'WernerStab.pythonanywhere.com']
 
@@ -84,12 +84,12 @@ ROOT_URLCONF = 'mysite.urls'
 
 
 # check ob für DIRS ersetzt werden kann[os.path.join(BASE_DIR, 'templates')],
-
+# PA läuft wohl nur mit os.path.join()
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [ BASE_DIR, 'templates'],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')], 
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

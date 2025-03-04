@@ -8,19 +8,21 @@
 
 {% block content %}
 
-    <div class="container">
-        <!-- Jumbotron Section -->
-        <div class="jumbotron bg-light p-4 rounded shadow-sm">
-            <h1 class="display-4 text-center mb-4 animate__animated animate__bounceIn animate__delay-2.0s">{% trans "Welcome to My Django Project" %}</h1>
-            <p class="lead text-center">
-                {% trans "This is a simple, yet effective, introduction to our project. We aim to provide the best experience possible." %}
-            </p>
-            <div class="text-center">
-                <!-- Placeholder image -->
-                <img src="{% static 'images/default-placeholder.jpg' %}" alt="{% trans 'Placeholder Image' %}" class="img-fluid rounded">
+<div class="container">
+    <!-- Jumbotron Section -->
+    <div class="jumbotron bg-light p-4 rounded shadow-sm position-relative">
+        <h1 class="display-4 text-center mb-4 animate__animated animate__bounceIn" style="animation-duration: 2s; animation-delay: 1s; animation-timing-function: ease-out;">{% trans "Welcome to My Website" %}</h1>
+        <p class="lead text-center">
+            {% trans "This is a simple, yet effective, introduction to our project. We aim to provide the best experience possible." %}
+        </p>
+        <div class="text-center">
+            <!-- Image container with overlay -->
+            <div class="image-container position-relative">
+                <img src="{% static 'images/default-placeholder.jpg' %}" alt="{% trans 'Placeholder Image' %}" class="img-fluid rounded">            
             </div>
         </div>
     </div>
+</div>
 
     <!-- Dummy Content Sections to Test Scrolling -->
     <section id="section1" class="pt-3" data-aos="zoom-in" data-aos-delay="300">

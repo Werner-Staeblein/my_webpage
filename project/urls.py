@@ -12,7 +12,7 @@ urlpatterns = [
 urlpatterns = [
     path('', views.home, name="home"),
     path('about/', views.about, name="about"),
-    path('navlink1/', views.navlink1, name="navlink1"),
+    path('coding/', views.coding, name="coding"),
     path('navlink2/', views.navlink2, name="navlink2"),
     
     path('verification-sent/', views.verification_sent, name='verification_sent'),

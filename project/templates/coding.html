@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block head_title %}
+{% trans "Navlink1" %}
+{% endblock head_title %}
+
+{% block content %}
+
+<main class="container custom-margin-top mt-5">
+
+  <div class="container">
+    <!-- Jumbotron Section -->
+    <div class="jumbotron bg-light p-4 rounded shadow-sm">
+      <h1 class="display-4 text-center mb-4 animate__animated animate__bounceIn"
+        style="animation-duration: 2s; animation-delay: 1s; animation-timing-function: ease-out;">
+        {% trans "The coding journey" %}</h1>
+      <p class="lead text-center">
+        {% trans "This is a simple, yet effective, introduction to our project. We aim to provide the best experience possible." %}
+      </p>
+    </div>
+  </div>
+
+  <section id="section1" class="custom-margin-top">
+    <h1 class="text-center mb-4">The Tech Stack I learned to work with</h1>
+    
+    <!-- Tech stack images in a grid -->
+    <div class="row justify-content-center">
+      <div class="col-6 col-md-3 mb-3">
+        <img src="{% static 'images/techstack/html5.svg' %}" class="img-fluid tech-stack-img" alt="HTML5">
+      </div>
+      <div class="col-6 col-md-3 mb-3">
+        <img src="{% static 'images/techstack/css3.svg' %}" class="img-fluid tech-stack-img" alt="CSS3">
+      </div>
+      <div class="col-6 col-md-3 mb-3">
+        <img src="{% static 'images/techstack/bootstrap.svg' %}" class="img-fluid tech-stack-img" alt="Bootstrap">
+      </div>
+      <div class="col-6 col-md-3 mb-3">
+        <img src="{% static 'images/techstack/javascript.svg' %}" class="img-fluid tech-stack-img" alt="Bootstrap">
+      </div>
+      <div class="col-6 col-md-3 mb-3">
+        <img src="{% static 'images/techstack/heroku.svg' %}" class="img-fluid tech-stack-img" alt="Heroku">
+      </div>
+      <div class="col-6 col-md-3 mb-3">
+        <img src="{% static 'images/techstack/python.svg' %}" class="img-fluid tech-stack-img" alt="Python">
+      </div>
+      <div class="col-6 col-md-3 mb-3">
+        <img src="{% static 'images/techstack/postgres.svg' %}" class="img-fluid tech-stack-img" alt="Postgres">
+      </div>
+      <div class="col-6 col-md-3 mb-3">
+        <img src="{% static 'images/techstack/markdown.svg' %}" class="img-fluid tech-stack-img" alt="Markdown">
+      </div>
+      <div class="col-6 col-md-3 mb-3">
+        <img src="{% static 'images/techstack/jquery.svg' %}" class="img-fluid tech-stack-img" alt="jQuery">
+      </div>
+    </div>
+
+  </section>
+  
+  <section id="section3" class="custom-margin-top">
+    <h1 class="text-center mb-4">abcdefef</h1>
+    <p class="lead text-center">
+      dummy text
+    </p>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <div class="text-center">
+            <h2>Centered Header</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 text-center">
+            <h3>Counter 1</h3>
+            <div class="counter" id="counter1">
+              <span class="count span-font-size" id="countValue1">0</span>
+            </div>
+          </div>
+          <div class="col-md-4 text-center">
+            <h3>Counter 2</h3>
+            <div class="counter" id="counter2">
+              <span class="count span-font-size" id="countValue2">0</span>
+            </div>
+          </div>
+          <div class="col-md-4 text-center">
+            <h3>Counter 3</h3>
+            <div class="counter" id="counter3">
+              <span class="count span-font-size" id="countValue3">0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    </div>
+  </section>
+
+  <section id="section2" class="custom-margin-top">
+    <h1 class="text-center mb-4">abcdefef</h1>
+    <p class="lead text-center">
+      Milestone
+    </p>
+
+    <!-- Full-width image -->
+    <div class="container">
+      <!-- Full-width image -->
+      <div class="full-width-image-container d-flex justify-content-center">
+        <img src="{% static 'images/ci_diploma.jpg' %}" class="img-fluid full-width-image" alt="Full-width image">
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+</main>
+
+<script src="{% static 'js/counter.js' %}"></script>
+
+{% endblock content %}

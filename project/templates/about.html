@@ -1,19 +1,53 @@
+{% extends "base.html" %} 
+{% load i18n %} 
+{% load static %} 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
-    <title>Document</title>
+{% block head_title%} 
+    {% trans "Navlink1" %} 
+{% endblock head_title %} 
 
-</head>
-<body>
+{% block content %}
+<main class="container custom-margin-top mt-5">
 
-    <div class="ball-container">
-        <div class="about">
-            This is the about page rendered on /about
+ <div class="container">
+        <!-- Jumbotron Section -->
+        <div class="jumbotron bg-light p-4 rounded shadow-sm">
+            <h1 class="display-4 text-center mb-4 animate__animated animate__bounceIn" style="animation-duration: 2s; animation-delay: 1s; animation-timing-function: ease-out;">
+                {% trans "Why this site?" %}
+            </h1>
+            <p class="lead text-center">
+                {% trans "This is a simple, yet effective, introduction to our project. We aim to provide the best experience possible." %}
+            </p>
         </div>
     </div>
 
-</body>
-</html>
+    <!-- Section 1: Tech Stack -->
+    
+    <!-- Other Sections -->
+    <section id="section1">
+        <h2>Section 1</h2>
+        <p>This is some dummy content for Section 1.</p>
+    </section>
+
+    <section id="section2">
+        <h2>Section 2</h2>
+        <p>This is some dummy content for Section 2.</p>
+    </section>
+
+    <section id="section3">
+        <h2>Qualifications</h2>
+        <p>Add images of qualifications here</p>
+    </section>
+
+    <section id="section4">
+        <h2>Section 4</h2>
+        <p>This is some dummy content for Section 4.</p>
+    </section>
+
+    <section id="section5">
+        <h2>Section 5</h2>
+        <p>This is some dummy content for Section 5.</p>
+    </section>
+
+</main>
+{% endblock content %}

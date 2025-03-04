@@ -27,8 +27,8 @@ def home(request):
 def about(request):
     return render(request, "about.html")
 
-def navlink1(request):
-    return render(request, "navlink1.html")
+def coding(request):
+    return render(request, "coding.html")
 
 def navlink2(request):
     return render(request, "navlink2.html")
